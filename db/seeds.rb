@@ -30,8 +30,8 @@
   # Création d'un slot pour chaque utilisateur
   Slot.create!(
     day: Faker::Date.forward(days: 30).strftime("%A"),
-    start_hour: "#{rand(1..12)}:00 #{['AM', 'PM'].sample}",
-    end_hour: "#{rand(1..12)}:00 #{['AM', 'PM'].sample}",
+    start_hour: "#{rand(8..12)}:00",
+    end_hour: "#{rand(13..18)}:00",
     address: address
   )
 end
@@ -61,7 +61,7 @@ address = Address.create!(
 # Création d'un slot pour chaque utilisateur
 Slot.create!(
   day: Faker::Date.forward(days: 30).strftime("%A"),
-  start_hour: "#{rand(1..12)}:00 #{['AM', 'PM'].sample}",
-  end_hour: "#{rand(1..12)}:00 #{['AM', 'PM'].sample}",
+  start_hour: "#{rand(8..12)}:00",
+  end_hour: "#{rand(13..18)}:00",
   address: address
 )
