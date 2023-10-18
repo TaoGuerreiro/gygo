@@ -42,4 +42,5 @@ end
 group :development do
   gem "shoulda-matchers"
   gem "web-console"
+  gem "faker"
 end
