@@ -1,0 +1,6 @@
+= form_tag "#", method: :get,
+  data: {controller: "address-autocomplete", address_autocomplete_api_key_value: Rails.application.credentials.mapbox_api_key} do
+  .hidden = text_field_tag :query,
+    params[:query],
+    data: {address_autocomplete_target: "address"}
+  = submit_tag "Search"

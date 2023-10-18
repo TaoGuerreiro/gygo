@@ -1,16 +1,7 @@
-
-html
-  head
-    title Gygo
-    meta name="viewport" content="width=device-width,initial-scale=1"
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
-    = stylesheet_link_tag "application", "data-turbo-track": "reload"
-    = javascript_importmap_tags
-
-    script src=Rails.application.credentials.fontawesome_url crossorigin="anonymous"
-
+doctype html
+html.h-full.bg-gray-100
+  = render "layouts/head"
+  = render partial: "layouts/flash"
   body
     main
       = yield
