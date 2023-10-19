@@ -27,21 +27,22 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "view_component"
 
 # Omniauth gems
+gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "omniauth-twitter"
 gem "omniauth"
 
-
 group :development, :test do
-  gem "rspec-rails", "~> 6.0.0"
-  gem "shoulda-matchers"
-  gem "rubocop-rails", require: false
   gem "annotate"
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "factory_bot_rails", "~> 6.2"
+  gem "faker"
+  gem "rspec-rails", "~> 6.0.0"
+  gem "rubocop-rails", require: false
+  gem "shoulda-matchers"
 end
 
 group :development do
   gem "web-console"
-  gem "faker"
 end

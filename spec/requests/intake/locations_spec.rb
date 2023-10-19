@@ -20,7 +20,7 @@ RSpec.describe Intake::LocationsController do
 
       expect(response).to have_http_status(302)
       expect(response).to redirect_to(new_intake_address_path)
-      expect(session[:location]['address']).to eq('123 Main St')
+      expect(session[:registration][:address]).to eq('123 Main St')
     end
 
     it 'renders the new template with invalid location' do
