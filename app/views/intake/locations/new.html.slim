@@ -1,4 +1,8 @@
 = render(Header::Component.new(title: "Complément d'adresse", backpath: "root_path")) do
-  = simple_form_for @location do |f|
-    = f.input :address, label: "Addresse", placeholder: "Addresse"
+  = simple_form_for @location, data: {controller: "search"} do |f|
+    .flex.flex-col.w-full.relative data-controller="search"
+      .absolute.bg-white.w-full.top-12.z-50.rounded-md data-search-target="list"
+      = f.input :address, label: "Addresse", placeholder: "Addresse", input_html: { autocomplete: "off", data: { action: "keydown->search#navigate keyup->search#fetchAddreses", "search-target": "input" }}
+      .absolute.right-2.z-0.text-gray-300.cursor-pointer class="hover:text-content top-2" data-action="click->search#resetInput"
+        i.fa-solid.fa-xmark.text-2xl
     = f.submit "C'est parti!", class: "btn btn-primary"

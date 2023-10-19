@@ -1,0 +1,6 @@
+= render(Header::Component.new(title: "Choix du créneau", backpath: "new_intake_address_path")) do
+  div Slot
+  . = session[:registration]["address"]
+  . = session[:registration]["phone"]
+  . = session[:registration]["floor"]
+  . = session[:registration]["comment"]
