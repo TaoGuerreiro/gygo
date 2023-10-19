@@ -9,7 +9,6 @@ module.exports = {
     './app/views/**/*.{erb,haml,html,slim}',
     "./app/components/**/*.{erb,haml,html,slim,rb,js,tailwind.css,css}",
     './config/initializers/simple_form.rb',
-
   ],
   theme: {
     extend: {
