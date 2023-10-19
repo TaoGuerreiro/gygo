@@ -7,13 +7,13 @@ module Intake
     end
 
     def create
-      @slot = Intake::Address.new(slot_params)
+      @slot = Intake::Slot.new(slot_params)
 
       if @slot.valid?
-        session[:registration][:day_name] = @address.day_name
-        session[:registration][:day_slot] = @address.day_slot
+        session[:registration][:day_name] = @slot.day_name
+        session[:registration][:day_slot] = @slot.day_slot
 
-        redirect_to new_intake_slot_path
+        redirect_to new_user_registration_path
       else
         render :new, status: :unprocessable_entity
       end
