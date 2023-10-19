@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  root "pages#show"
-  get "landing", to: "pages#show"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "pages#show"
+  root "intake/locations#new"
   namespace :intake do
+    resources :locations, only: [:new, :create]
     resources :addresses, only: [:new, :create]
   end
 end
