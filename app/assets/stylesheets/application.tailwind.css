@@ -13,6 +13,10 @@
   .btn-primary {
     @apply  hover:bg-white hover:text-primary hover:border-primary bg-primary text-white  border-white focus:ring-secondary ;
   }
+
+  .btn-secondary {
+    @apply  hover:bg-white hover:text-primary hover:border-secondary bg-secondary text-primary  border-white focus:ring-secondary ;
+  }
   /*END Buttons*/
 
   /*START Floating Label CSS */
@@ -21,7 +25,7 @@
   }
 
   .form-input {
-    @apply appearance-none block w-full py-2 px-3 border border-gray-300 rounded-md placeholder-transparent focus:outline-none focus:ring-primary focus:border-primary;
+    @apply appearance-none block w-full py-2 px-3 border border-gray-300 rounded-md placeholder-transparent focus:outline-none focus:ring-secondary focus:border-primary;
     @apply transition-all duration-200;
     @apply z-40; /* Ajoutez cette ligne pour définir le z-index du champ de saisie */
   }

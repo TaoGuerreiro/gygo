@@ -1,4 +1,4 @@
-= render(Header::Component.new(title: "Complément d'adresse", backpath: "root_path")) do
+= render(Header::Component.new(title: "Quel est ton adresse?", backpath: "root_path")) do
   = simple_form_for @location, data: {controller: "search"} do |f|
     .flex.flex-col.w-full.relative data-controller="search"
       .absolute.bg-white.w-full.top-12.z-50.rounded-md data-search-target="list"
