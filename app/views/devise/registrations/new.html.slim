@@ -1,4 +1,9 @@
 = render(Header::Component.new(title: "Création du compte", backpath: "new_intake_slot_path")) do
+
+  = render Buttons::SocialSignIn::Component.new(:facebook)
+  = render Buttons::SocialSignIn::Component.new(:google)
+  = render Buttons::SocialSignIn::Component.new(:twitter)
+
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = f.error_notification
 
