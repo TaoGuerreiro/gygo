@@ -9,5 +9,7 @@ head
   = stylesheet_link_tag "application", "data-turbo-track": "reload"
   = javascript_importmap_tags
   link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet"
+  = tag :meta, name: :mapbox_token, content: Rails.application.credentials.mapbox_api_key
+
 
   script src=Rails.application.credentials.fontawesome_url crossorigin="anonymous"

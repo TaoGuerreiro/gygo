@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   namespace :intake do
     resources :locations, only: [:new, :create]
     resources :addresses, only: [:new, :create]
+    resources :slots, only: [:new, :create]
   end
 end

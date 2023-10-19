@@ -9,8 +9,8 @@ module Intake
     def create
       @location = Intake::Location.new(location_params)
       if @location.valid?
-        session[:location] = {
-          'address' => @location.address
+        session[:registration] = {
+          address: @location.address
         }
         redirect_to new_intake_address_path
       else
