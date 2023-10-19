@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Intake
   class AddressesController < ApplicationController
     def new

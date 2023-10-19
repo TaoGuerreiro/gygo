@@ -23,6 +23,15 @@ module.exports = {
         primary: colors.green[500],
         secondary: colors.green[100],
         content: colors.gray[500],
+      },
+      keyframes: {
+        'fade-out': {
+          '0%, 70%': { opacity: 1 },
+          '100%': { opacity: 0 }
+        }
+      },
+      animation: {
+        'fade-out': 'fade-out 3s linear 1'
       }
     },
   },
