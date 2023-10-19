@@ -1,6 +1,6 @@
 = render(Header::Component.new(title: "Complément d'adresse", backpath: "root_path")) do
   p tu as choisis l'adresse suivante:
-  = session[:registration]["address"]
+  = session[:registration][:address]
   p dis nous en plus :
   = simple_form_for @address do |f|
     = f.input :phone, label: "Téléphone", placeholder: "Téléphone"

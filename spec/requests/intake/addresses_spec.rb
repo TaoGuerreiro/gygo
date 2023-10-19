@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Instake::Addresses", type: :request do
+RSpec.describe Intake::AddressesController do
   describe "GET /index" do
     pending "add some examples (or delete) #{__FILE__}"
   end
