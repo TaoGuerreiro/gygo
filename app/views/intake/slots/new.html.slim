@@ -1,8 +1,18 @@
 = render(Header::Component.new(title: "Choix du créneau", backpath: "new_intake_address_path")) do
-  div Slot
-  . = session[:registration]["address"]
-  . = session[:registration]["phone"]
-  . = session[:registration]["floor"]
-  . = session[:registration]["comment"]
+  p.text-content.text-center.mb-6 Selectionner un jour de collecte à laquel vous souhaitez que notre équipe vienne récupérer votre cabas.
+  = simple_form_for @slot, html: {class: "mb-6"} do |f|
+    .grid.grid-cols-3.gap-4.mb-12
+      - Slot.day.values.each do |day|
+        .flex.items-center.w-full
+          = f.radio_button :day_name, day, class: "hidden peer"
+          = f.label :day_name, t(day), class: "rounded-lg bg-secondary peer-checked:bg-primary peer-checked:text-white text-content px-2 py-1 w-full text-center", value: day
+    p.text-content.text-center.mb-6 Selectionner le créneau horaire.
+    .grid.grid-cols-3.gap-4.mb-12
+      - Slot.slot_array.each do |slot|
+        .flex.items-center.w-full
+          = f.radio_button :day_slot, slot, class: "hidden peer"
+          = f.label :day_slot, slot, class: "rounded-lg bg-secondary peer-checked:bg-primary peer-checked:text-white text-content px-2 py-1 w-full text-center text-sm", value: slot
 
-  = link_to "registration", new_user_registration_path
+    = f.button :submit, "Confirmer", class: "w-full"
+  // TODO
+  p.text-content.text-center.mb-6 Notre équipe interviendra chaque lundi entre 08:00 et 9:00 à l’adresse 2 impasse de la Poule Noire, Nantes auprès du contact Contesse Anne joingable au 061122334455
