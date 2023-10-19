@@ -1,8 +1,33 @@
-= render(Header::Component.new(title: "Quel est ton adresse?", backpath: "root_path")) do
-  = simple_form_for @location, data: {controller: "search"} do |f|
+.px-6.pt-24
+
+  .bg-primary.rounded-t-4xl.w-full.text-white.pt-24.mb-6.rounded-r-4xl.pb-8.px-3.relative
+    // Trouver un truc beau à mettre là-haut
+    i.fa-regular.fa-wine-bottle.absolute.left-10.top-6.-rotate-90.text-secondary class="text-[50px]"
+    i.fa-regular.fa-wine-bottle.absolute.right-10.top-6.rotate-90.text-secondary class="text-[50px]"
+    h1.text-center.text-3xl.mb-8 LA FLEMME DE SORTIR LES VERRES?
+    h1.text-center.text-3xl.mb-8 ON LE FAIT POUR VOUS
+    .flex.items-center.pl-6
+      i.fa-solid.fa-check.text-xl
+      p.ml-2.text-content.text-sm.text-white.text-xl
+        | 1 fois par semaine
+    .flex.items-center.pl-6
+      i.fa-solid.fa-check.text-xl
+      p.ml-2.text-content.text-sm.text-white.text-xl
+        | 1 cabas 22cmx32cmx30cm
+    .flex.items-center.pl-6
+      i.fa-solid.fa-check.text-xl
+      p.ml-2.text-content.text-sm.text-white.text-xl
+        | 29,90 € / mois
+
+  = simple_form_for @location, data: {controller: "search"}, html: {class: "w-full mb-8"} do |f|
     .flex.flex-col.w-full.relative data-controller="search"
       .absolute.bg-white.w-full.top-12.z-50.rounded-md data-search-target="list"
       = f.input :address, label: "Addresse", placeholder: "Addresse", input_html: { autocomplete: "off", data: { action: "keydown->search#navigate keyup->search#fetchAddreses", "search-target": "input" }}
       .absolute.right-2.z-0.text-gray-300.cursor-pointer class="hover:text-content top-2" data-action="click->search#resetInput"
         i.fa-solid.fa-xmark.text-2xl
-    = f.submit "C'est parti!", class: "btn btn-primary"
+    = f.submit "C'est parti!", class: "btn btn-primary mx-auto w-full"
+
+  p.text-content.text-center.mb-8 En partenariat avec BiciCourriers spécialiste de la livraisons express sur Nantes
+
+  .flex.justify-center.mt-auto
+    = link_to "Se connecter", new_user_session_path, class: "text-content text-sm"
