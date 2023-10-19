@@ -55,10 +55,12 @@ module Users
 
       if user.present?
         sign_out_all_scopes
-        flash[:success] = t("devise.omniauth_callbacks.success", kind: provider)
+        flash[:success] = "C'est tout bon!"
+        # flash[:success] = t("devise.omniauth_callbacks.success", kind: provider)
         sign_in_and_redirect user, event: :authentication
       else
-        flash[:alert] = t("devise.omniauth_callbacks.failure", kind: provider, reason: "#{auth.info.email} is not authorized.")
+        flash[:alert] = "Oups, petit soucis!"
+        # flash[:alert] = t("devise.omniauth_callbacks.failure", kind: provider, reason: "#{auth.info.email} is not authorized.")
         redirect_to new_user_session_path
       end
     end

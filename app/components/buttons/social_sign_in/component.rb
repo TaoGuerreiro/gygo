@@ -24,6 +24,9 @@ module Buttons
 
       def icon_class
         "bg-[#{@color}] hover:bg-[#{@color}]/90 focus:ring-[#{@color}]/50 dark:focus:ring-[#{@color}]/55"
+        # "bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-[#3b5998]/50 dark:focus:ring-[#3b5998]/55"
+        # "bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-[#4285F4]/50 dark:focus:ring-[#4285F4]/55"
+        # "bg-[#1da1f2] hover:bg-[#1da1f2]/90 focus:ring-[#1da1f2]/50 dark:focus:ring-[#1da1f2]/55"
       end
 
       def twitter_icon

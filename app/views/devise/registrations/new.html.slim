@@ -4,6 +4,8 @@
   = render Buttons::SocialSignIn::Component.new(:google)
   = render Buttons::SocialSignIn::Component.new(:twitter)
 
+  hr class="h-px mb-8 mt-2 bg-gray-200 border-0 dark:bg-gray-700"
+
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = f.error_notification
 
