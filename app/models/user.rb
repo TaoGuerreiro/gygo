@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -26,9 +28,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2, :twitter, :facebook]
 
+  # Associations
   has_many :authorizations, dependent: :destroy
+  has_one :address, dependent: :destroy
 
-  # Validation
+  # Validations
   validates :email, presence: true
   validates :email, uniqueness: true
   validates :first_name, presence: true

@@ -9,9 +9,8 @@ module Intake
     def create
       @location = Intake::Location.new(location_params)
       if @location.valid?
-        session[:registration] = {
-          address: @location.address
-        }
+        session[:registration] = @location.split_address
+
         redirect_to new_intake_address_path
       else
         render :new, status: :unprocessable_entity

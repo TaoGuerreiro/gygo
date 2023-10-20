@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: addresses
@@ -27,4 +29,6 @@
 #
 class Address < ApplicationRecord
   belongs_to :user
+  has_one :slot, dependent: :destroy
+  accepts_nested_attributes_for :slot
 end

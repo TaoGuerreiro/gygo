@@ -28,6 +28,10 @@ require "rails_helper"
 RSpec.describe Authorization, type: :model do
   let(:user) { create(:user) }
 
+  describe "associations" do
+    it { is_expected.to belong_to(:user) }
+  end
+
   it "is valid with a unique combination of uid and provider" do
     authorization = Authorization.new(user: user, uid: "unique_uid", provider: "unique_provider")
     expect(authorization).to be_valid

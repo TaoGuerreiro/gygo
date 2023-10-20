@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: slots
@@ -28,7 +30,6 @@ class Slot < ApplicationRecord
   OPENING_HOUR = "08:00"
   CLOSING_HOUR = "18:00"
   SLOT_SIZE = 2.hours
-
 
   def self.slot_array
     start_time = Time.parse(OPENING_HOUR)
