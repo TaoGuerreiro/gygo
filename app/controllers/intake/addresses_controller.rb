@@ -10,10 +10,7 @@ module Intake
       @address = Intake::Address.new(address_params)
 
       if @address.valid?
-        session[:registration][:phone] = @address.phone
-        session[:registration][:floor] = @address.floor
-        session[:registration][:comment] = @address.comment
-        session[:registration][:terms_of_service] = @address.terms_of_service
+        address_attributes
 
         redirect_to new_intake_slot_path
       else
@@ -22,6 +19,15 @@ module Intake
     end
 
     private
+
+    def address_attributes
+      session[:registration].merge!(
+        phone: @address.phone,
+        line_2: @address.floor,
+        comment: @address.comment,
+        terms_of_service: @address.terms_of_service
+      )
+    end
 
     def address_params
       params.require(:intake_address).permit(:phone, :floor, :comment, :terms_of_service)
