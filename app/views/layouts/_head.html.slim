@@ -3,10 +3,10 @@ head
   meta name="viewport" content="width=device-width,initial-scale=1"
   = csrf_meta_tags
   = csp_meta_tag
-  / = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
+  = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
   = stylesheet_link_tag "application", "data-turbo-track": "reload"
-
+  = render partial: "layouts/flash"
   = javascript_importmap_tags
 
   = tag :meta, name: :mapbox_token, content: Rails.application.credentials.mapbox_api_key
-  script src=Rails.application.credentials.fontawesome_url crossorigin="anonymous"
+  script src=Rails.application.credentials.fontawesome_url crossorigin="anonymous" async="true"
