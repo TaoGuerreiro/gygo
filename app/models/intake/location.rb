@@ -12,6 +12,7 @@ module Intake
     def split_address
       if (match_data = address&.match(ADDRESS_PATTERN))
         {
+          address: address,
           line_1: match_data[1],
           postal_code: match_data[2],
           city: match_data[3],
