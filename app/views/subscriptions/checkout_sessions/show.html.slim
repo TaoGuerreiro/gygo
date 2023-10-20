@@ -1,2 +1,3 @@
 = render(Header::Component.new(title: "Validation et paiement", backpath: "root_path")) do
-  p lorem ipsum
+  p.mb-6 lorem ipsum
+  = link_to "confirmer", subscriptions_confirmation_path, class: "btn btn-primary"
