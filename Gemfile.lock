@@ -314,7 +314,7 @@ GEM
     tailwindcss-rails (2.0.31-x86_64-linux)
       railties (>= 6.0.0)
     temple (0.10.3)
-    thor (1.2.2)
+    thor (1.3.0)
     tilt (2.3.0)
     timeout (0.4.0)
     turbo-rails (1.5.0)
@@ -343,7 +343,6 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
-  arm64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
