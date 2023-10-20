@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "app_id": "app_5761a4c5-912b-4b0a-ac35-48fbf820e438",
+      "org_id": "orga_d9f9a61a-47e5-4b18-8ac2-74122f65e08a",
+      "deploy_url": "https://push-n3-par-clevercloud-customers.services.clever-cloud.com/app_5761a4c5-912b-4b0a-ac35-48fbf820e438.git",
+      "name": "gygo",
+      "alias": "gygo"
+    }
+  ]
+}
