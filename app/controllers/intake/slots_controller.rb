@@ -10,8 +10,7 @@ module Intake
       @slot = Intake::Slot.new(slot_params)
 
       if @slot.valid?
-        session[:registration][:day_name] = @slot.day_name
-        session[:registration][:day_slot] = @slot.day_slot
+        slot_attributes
 
         redirect_to new_user_registration_path
       else
@@ -20,6 +19,14 @@ module Intake
     end
 
     private
+
+    def slot_attributes
+      session[:registration][:slot_attributes] = {
+        day: @slot.day_name,
+        start_hour: @slot.day_slot.split("-").first,
+        end_hour: @slot.day_slot.split("-").last
+      }
+    end
 
     def slot_params
       params.require(:intake_slot).permit(:day_name, :day_slot)
