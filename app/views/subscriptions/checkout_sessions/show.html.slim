@@ -1,3 +1,5 @@
 = render(Header::Component.new(title: "Validation et paiement", backpath: "root_path")) do
-  p.mb-6 lorem ipsum
+  .flex.mb-6
+    i.fa-solid.fa-circle-info.basis-1/4.self-center.text-content.text-3xl.text-center.text-primary
+    p.text-content.basis-3/4 Pour valider la collecte de vos ordures, nous allons procéder au paiement de la prestation
   = link_to "confirmer", subscriptions_confirmation_path, class: "btn btn-primary"
