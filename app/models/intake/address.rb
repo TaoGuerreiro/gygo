@@ -5,6 +5,7 @@ module Intake
     include ActiveModel::Model
     attr_accessor :phone, :floor, :comment, :terms_of_service
 
+
     validates :phone, presence: true
     validates :floor, presence: true
     validates :comment, presence: true
