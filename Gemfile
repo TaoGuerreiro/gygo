@@ -11,7 +11,6 @@ gem "rails", "~> 7.0.8"
 gem "bootsnap", require: false
 gem "devise"
 gem "enumerize"
-gem "font-awesome-sass"
 gem "importmap-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
