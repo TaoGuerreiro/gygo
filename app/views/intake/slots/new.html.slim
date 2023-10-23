@@ -1,18 +1,27 @@
 = render(Header::Component.new(title: "Choix du créneau", backpath: "new_intake_address_path")) do
   p.text-content.text-center.mb-6 Selectionner un jour de collecte à laquel vous souhaitez que notre équipe vienne récupérer votre cabas.
-  = simple_form_for @slot, html: {class: "mb-6"} do |f|
-    .grid.grid-cols-3.gap-4.mb-12
-      - Slot.day.values.each do |day|
-        .flex.items-center.w-full
-          = f.radio_button :day_name, day, class: "hidden peer"
-          = f.label :day_name, t(day), class: "rounded-lg bg-secondary peer-checked:bg-primary peer-checked:text-white text-content px-2 py-1 w-full text-center", value: day
-    p.text-content.text-center.mb-6 Selectionner le créneau horaire.
-    .grid.grid-cols-3.gap-4.mb-12
-      - Slot.slot_array.each do |slot|
-        .flex.items-center.w-full
-          = f.radio_button :day_slot, slot, class: "hidden peer"
-          = f.label :day_slot, slot, class: "rounded-lg bg-secondary peer-checked:bg-primary peer-checked:text-white text-content px-2 py-1 w-full text-center text-sm", value: slot
+  . data-controller="radio-value-display"
+    = simple_form_for @slot, html: {class: "mb-6"} do |f|
+      .grid.grid-cols-3.gap-4.mb-12
+        - Slot.day.values.each do |day|
+          .flex.items-center.w-full
+            = f.radio_button :day_name, day, class: "hidden peer", data: { action: "change->radio-value-display#updateValue", "radio-value-display-id-param": "0" }
+            = f.label :day_name, t(day), class: "rounded-lg bg-secondary peer-checked:bg-primary peer-checked:text-white text-content px-2 py-1 w-full text-center", value: day
+      p.text-content.text-center.mb-6 Selectionner le créneau horaire.
+      .grid.grid-cols-3.gap-4.mb-12
+        - Slot.slot_array.each do |slot|
+          .flex.items-center.w-full
+            = f.radio_button :day_slot, slot, class: "hidden peer", data: { action: "change->radio-value-display#updateValue", "radio-value-display-id-param": "1" }
+            = f.label :day_slot, slot, class: "rounded-lg bg-secondary peer-checked:bg-primary peer-checked:text-white text-content px-2 py-1 w-full text-center text-sm", value: slot
 
-    = f.button :submit, "Confirmer", class: "w-full"
-  // TODO
-  p.text-content.text-center.mb-6 Notre équipe interviendra chaque lundi entre 08:00 et 9:00 à l’adresse 2 impasse de la Poule Noire, Nantes auprès du contact Contesse Anne joingable au 061122334455
+      = f.button :submit, "Confirmer", class: "w-full"
+
+    p.text-content.text-center.mb-6
+      | Notre équipe interviendra chaque&nbsp;
+      span.text-primary data-radio-value-display-target="outputSpan" lundi
+      | &nbsp;entre&nbsp;
+      span.text-primary data-radio-value-display-target="outputSpan" 08:00-09:00
+      | &nbsp;à l’adresse&nbsp;
+      span.text-primary= session[:registration]["address"]
+      | &nbsp;joignable au&nbsp;
+      span.text-primary= session[:registration]["phone"]
