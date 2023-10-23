@@ -16,8 +16,14 @@ Rails.application.routes.draw do
     resources :slots, only: [:new, :create]
   end
 
-  namespace :subscriptions do
-    resource :checkout_session, only: [:show]
-    resource :confirmation, only: [:show]
+  authenticate :user do
+    namespace :subscriptions do
+      resource :checkout_session, only: [:show]
+      resource :confirmation, only: [:show]
+    end
+
+    namespace :client do
+      resource :account, only: [:show], controller: "account"
+    end
   end
 end

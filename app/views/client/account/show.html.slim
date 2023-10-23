@@ -1,0 +1,12 @@
+= render(Header::Component.new(title: "Votre compte", backpath: "root_path")) do
+  h2.mb-6 Adresse de livraison
+  .flex.mb-6
+    i.fa-solid.fa-map-marker-alt.basis-1/5.self-center.text-content.text-3xl.text-center.text-primary
+    p.text-content.basis-3/5 = @user.address.address
+    i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
+
+  h2.mb-6 Créneau de livraison
+  .flex.mb-6
+    p.text-content.basis-2/5.bg-primary.text-white.text-center.rounded-lg.px-2.py-1.mx-2 = @user.address.slot.day.upcase
+    p.text-content.basis-2/5.bg-primary.text-white.text-center.rounded-lg.px-2.py-1.text-sm.mx-2 = "#{@user.address.slot.start_hour}-#{@user.address.slot.end_hour}"
+    i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
