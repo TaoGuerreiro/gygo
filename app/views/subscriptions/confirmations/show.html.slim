@@ -1,0 +1,17 @@
+.flex.justify-center.mb-6 data-controller="confetti"
+  .bg-primary.w-full.h-48.rounded-bl-full.rounded-br-full.relative
+    i.fa-regular.fa-wine-bottle.absolute.left-10.top-6.-rotate-90.text-secondary class="text-[50px]"
+    i.fa-regular.fa-wine-bottle.absolute.left-20.top-5.rotate-45.text-secondary class="text-[50px]"
+    i.fa-regular.fa-wine-bottle.absolute.right-10.top-10.rotate-90.text-secondary class="text-[50px]"
+
+.w-full.h-full.bg-white.px-6.pt-6
+  h1.text-center.text-3xl.mb-8 FELICITATION!
+  p.text-content.text-center.mb-8 Vous pouvez maintenant vous relaxer on se charge de vos verres chaques semaines!
+  p.text-content.text-center.mb-8 Connecter vous à votre compte pour modifier vos informations ou arrêter votre souscription
+
+  / TODO!
+  p.text-content.text-center.text-primary Merci de votre confiance!
+  p.text-content.text-center.text-primary.mb-8 Partager sur les réseaux sociaux
+
+  .flex.justify-center.mt-auto
+    = link_to "Mon compte", new_user_session_path, class: "btn btn-primary"

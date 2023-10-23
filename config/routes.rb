@@ -18,5 +18,6 @@ Rails.application.routes.draw do
 
   namespace :subscriptions do
     resource :checkout_session, only: [:show]
+    resource :confirmation, only: [:show]
   end
 end
