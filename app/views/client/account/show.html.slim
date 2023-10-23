@@ -7,8 +7,10 @@
 
   h2.mb-6 Créneau de livraison
   .flex.mb-6
-    p.text-content.basis-2/5.bg-primary.text-white.text-center.rounded-lg.px-2.py-1.mx-2.uppercase = @user.address.slot.day
-    p.text-content.basis-2/5.bg-primary.text-white.text-center.rounded-lg.px-2.py-1.text-sm.mx-2 = "#{@user.address.slot.start_hour}-#{@user.address.slot.end_hour}"
+    .basis-2/5.mx-2 = render(Badge::Component.new) do
+      = @user.address.slot.day
+    .basis-2/5.mx-2 = render(Badge::Component.new) do
+      = "#{@user.address.slot.start_hour}-#{@user.address.slot.end_hour}"
     i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
 
   h2.mb-6 Moyen de paiement
@@ -45,12 +47,12 @@
         tr
           td.py-3.ps-4 30 €
           td.py-3
-            span.text-green-800.bg-green-200.border-green-200.inline-flex.items-center.rounded-full.border-2.px-2.py-0.5.text-xs.font-semibold.capitalize.shadow-sm
+            = render(Pill::Component.new) do
               | Successful
           td.py-3.pe-4 Sep. 01
         tr
           td.py-3.ps-4 30 €
           td.py-3
-            span.text-green-800.bg-green-200.border-green-200.inline-flex.items-center.rounded-full.border-2.px-2.py-0.5.text-xs.font-semibold.capitalize.shadow-sm
-              | Successful
+            = render(Pill::Component.new(color: "red")) do
+              | Issue
           td.py-3.pe-4 Oct. 01
