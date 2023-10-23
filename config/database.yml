@@ -79,8 +79,8 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# config/database.yml
+# [...]
 production:
   <<: *default
-  database: gygo_production
-  username: gygo
-  password: <%= ENV["GYGO_DATABASE_PASSWORD"] %>
+  url: <%= ENV['POSTGRESQL_ADDON_URI'] %>
