@@ -1,17 +1,18 @@
 = render(Header::Component.new(title: "Votre compte", backpath: "root_path")) do
   h2.mb-6 Adresse de livraison
-  .flex.mb-6
-    i.fa-solid.fa-map-marker-alt.basis-1/5.self-center.text-content.text-3xl.text-center.text-primary
-    p.text-content.basis-3/5 = @user.address.address
-    = link_to edit_client_address_path(@user.address), class: "flex items-center" do
-      i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
+  = turbo_frame_tag @address do
+    .flex.mb-6
+      i.fa-solid.fa-map-marker-alt.basis-1/5.self-center.text-content.text-3xl.text-center.text-primary
+      p.text-content.basis-3/5 = @address.address
+      = link_to edit_address_path(@user.address), class: "flex items-center" do
+        i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
 
   h2.mb-6 Créneau de livraison
   .flex.mb-6
     .basis-2/5.mx-2 = render(Badge::Component.new) do
-      = @user.address.slot.day
+      = @address.slot.day
     .basis-2/5.mx-2 = render(Badge::Component.new) do
-      = "#{@user.address.slot.start_hour}-#{@user.address.slot.end_hour}"
+      = "#{@address.slot.start_hour}-#{@address.slot.end_hour}"
     i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
 
   h2.mb-6 Moyen de paiement
