@@ -13,7 +13,7 @@ RSpec.describe Client::AccountController, type: :request do
 
   describe "GET /show" do
     it "returns http success" do
-      get "/client/account"
+      get "/account"
 
       expect(response).to have_http_status(200)
     end

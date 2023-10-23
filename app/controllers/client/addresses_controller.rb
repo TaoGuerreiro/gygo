@@ -10,7 +10,7 @@ module Client
     def update
       if @address.update(address_params)
         flash[:notice] = 'Address updated successfully'
-        redirect_to client_account_path
+        redirect_to account_path
       else
         render :edit, status: :unprocessable_entity
       end

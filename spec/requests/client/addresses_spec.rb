@@ -12,21 +12,21 @@ RSpec.describe Client::AddressesController, type: :request do
 
   describe "GET /edit" do
     it "returns http success" do
-      get "/client/addresses/#{address.id}/edit"
+      get "/addresses/#{address.id}/edit"
       expect(response).to have_http_status(200)
     end
   end
 
   describe 'PATCH #update' do
-    it 'redirects to client_account_path with valid location' do
-      patch "/client/addresses/#{address.id}", params: valid_address_params
+    it 'redirects to account_path with valid location' do
+      patch "/addresses/#{address.id}", params: valid_address_params
 
       expect(response).to have_http_status(302)
-      expect(response).to redirect_to(client_account_path)
+      expect(response).to redirect_to(account_path)
     end
 
     it 'renders the edit template with invalid location' do
-      patch "/client/addresses/#{address.id}", params: invalid_address_params
+      patch "/addresses/#{address.id}", params: invalid_address_params
 
       expect(response).to have_http_status(:unprocessable_entity)
     end

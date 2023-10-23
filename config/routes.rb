@@ -22,9 +22,7 @@ Rails.application.routes.draw do
       resource :confirmation, only: [:show]
     end
 
-    namespace :client do
-      resource :account, only: [:show], controller: "account"
-      resources :addresses, only: [:edit, :update]
-    end
+    resource :account, only: [:show], controller: "account", module: :client
+    resources :addresses, only: [:edit, :update], module: :client
   end
 end
