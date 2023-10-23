@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
     namespace :client do
       resource :account, only: [:show], controller: "account"
+      resources :addresses, only: [:edit, :update]
     end
   end
 end

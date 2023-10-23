@@ -3,7 +3,8 @@
   .flex.mb-6
     i.fa-solid.fa-map-marker-alt.basis-1/5.self-center.text-content.text-3xl.text-center.text-primary
     p.text-content.basis-3/5 = @user.address.address
-    i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
+    = link_to edit_client_address_path(@user.address), class: "flex items-center" do
+      i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
 
   h2.mb-6 Créneau de livraison
   .flex.mb-6
