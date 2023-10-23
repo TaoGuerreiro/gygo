@@ -7,6 +7,50 @@
 
   h2.mb-6 Créneau de livraison
   .flex.mb-6
-    p.text-content.basis-2/5.bg-primary.text-white.text-center.rounded-lg.px-2.py-1.mx-2 = @user.address.slot.day.upcase
+    p.text-content.basis-2/5.bg-primary.text-white.text-center.rounded-lg.px-2.py-1.mx-2.uppercase = @user.address.slot.day
     p.text-content.basis-2/5.bg-primary.text-white.text-center.rounded-lg.px-2.py-1.text-sm.mx-2 = "#{@user.address.slot.start_hour}-#{@user.address.slot.end_hour}"
     i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
+
+  h2.mb-6 Moyen de paiement
+  .flex.mb-6
+    .w-96.h-40.m-auto.bg-secondary.rounded-xl.relative.text-white.shadow-2xl.transition-transform.hover:scale-110
+      img.relative.object-cover.w-full.h-full.rounded-xl src="https://i.imgur.com/kGkSg1v.png"
+      .w-full.px-8.absolute.top-4
+        .flex.justify-between
+          div
+            p.font-light Card Number
+            p.font-medium.tracking-more-wider
+              | ****  ****  ****  4242
+        .pt-2
+          .flex.justify-between.items-center
+            div
+              p.font-light.text-xs Expiry
+              p.font-medium.tracking-wider.text-sm 03/25
+            div
+              p.font-light.text-xs CVV
+              p.font-bold.tracking-more-wider.text-sm
+                | ***
+            img.w-14.h-14 src="https://i.imgur.com/bbPHJVe.png"
+    i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
+
+  h2.mb-6 Derniers paiements
+  .flex.mb-6
+    table.w-full.divide-y
+      thead.text-xs.font-semibold.uppercase
+        tr
+          th.py-3.ps-4.text-left.font-semibold Amount
+          th.py-3.text-left.font-semibold Status
+          th.py-3.pe-4.text-left.font-semibold Date
+      tbody.divide-y.text-sm.font-medium
+        tr
+          td.py-3.ps-4 30 €
+          td.py-3
+            span.text-green-800.bg-green-200.border-green-200.inline-flex.items-center.rounded-full.border-2.px-2.py-0.5.text-xs.font-semibold.capitalize.shadow-sm
+              | Successful
+          td.py-3.pe-4 Sep. 01
+        tr
+          td.py-3.ps-4 30 €
+          td.py-3
+            span.text-green-800.bg-green-200.border-green-200.inline-flex.items-center.rounded-full.border-2.px-2.py-0.5.text-xs.font-semibold.capitalize.shadow-sm
+              | Successful
+          td.py-3.pe-4 Oct. 01
