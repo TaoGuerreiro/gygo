@@ -5,6 +5,7 @@
 # Table name: addresses
 #
 #  id               :bigint           not null, primary key
+#  address          :string
 #  city             :string
 #  comment          :string
 #  country          :string
