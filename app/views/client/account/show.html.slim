@@ -1,6 +1,7 @@
 = render(Header::Component.new(title: "Votre compte", backpath: "root_path")) do
   h2.mb-6 Adresse de livraison
   = turbo_frame_tag @address do
+    = render_flash
     .flex.mb-6
       i.fa-solid.fa-map-marker-alt.basis-1/5.self-center.text-content.text-3xl.text-center.text-primary
       p.text-content.basis-3/5 = @address.address
