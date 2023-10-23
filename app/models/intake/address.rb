@@ -7,8 +7,6 @@ module Intake
 
 
     validates :phone, presence: true
-    validates :floor, presence: true
-    validates :comment, presence: true
     validates :terms_of_service, presence: true, acceptance: true
   end
 end
