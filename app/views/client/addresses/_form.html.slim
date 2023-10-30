@@ -4,4 +4,7 @@
     = f.input :address, label: "Addresse", placeholder: "Addresse", input_html: { autocomplete: "off", data: { action: "keydown->search#navigate keyup->search#fetchAddreses", "search-target": "input" }}
     .absolute.right-2.z-0.text-gray-300.cursor-pointer class="hover:text-content top-2" data-action="click->search#resetInput"
       i.fa-solid.fa-xmark.text-2xl
-  = f.submit "Mettre à jour", class: "btn btn-primary mx-auto w-full"
+  .flex.flex-row
+    = f.submit "Mettre à jour", class: "btn btn-primary mx-auto w-full"
+    = link_to account_path, class: "flex items-center ml-2" do
+      i.fa-solid.fa-arrow-rotate-left.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
