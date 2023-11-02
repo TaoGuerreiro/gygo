@@ -9,12 +9,15 @@
         i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
 
   h2.mb-6 Créneau de livraison
-  .flex.mb-6
-    .basis-2/5.mx-2 = render(Badge::Component.new) do
-      = @address.slot.day
-    .basis-2/5.mx-2 = render(Badge::Component.new) do
-      = "#{@address.slot.start_hour}-#{@address.slot.end_hour}"
-    i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
+  = turbo_frame_tag @slot do
+    = render_flash
+    .flex.mb-6
+      .basis-2/5.mx-2 = render(Badge::Component.new) do
+        = @slot.day
+      .basis-2/5.mx-2 = render(Badge::Component.new) do
+        = @slot.slot_formating
+      = link_to edit_slot_path(@slot), class: "flex items-center" do
+        i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
 
   h2.mb-6 Moyen de paiement
   .flex.mb-6
