@@ -7,6 +7,7 @@ module Client
     def show
       @user = User.includes(address: :slot).find(current_user.id)
       @address = @user.address
+      @slot = @user.slot
     end
   end
 end

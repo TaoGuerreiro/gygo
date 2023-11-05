@@ -30,4 +30,7 @@
   p.text-content.text-center.mb-8 En partenariat avec BiciCourriers spécialiste de la livraisons express sur Nantes
 
   .flex.justify-center.mt-auto
-    = link_to "Se connecter", new_user_session_path, class: "text-content text-sm"
+    - if current_user
+      = link_to "Votre compte", account_path, class: "text-content text-sm"
+    - else
+      = link_to "Se connecter", new_user_session_path, class: "text-content text-sm"

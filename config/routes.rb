@@ -5,11 +5,9 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
 
   root "intake/locations#new"
+
   namespace :intake do
     resources :locations, only: [:new, :create]
     resources :addresses, only: [:new, :create]
@@ -24,5 +22,6 @@ Rails.application.routes.draw do
 
     resource :account, only: [:show], controller: "account", module: :client
     resources :addresses, only: [:edit, :update], module: :client
+    resources :slots, only: [:edit, :update], module: :client
   end
 end

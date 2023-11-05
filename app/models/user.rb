@@ -31,6 +31,7 @@ class User < ApplicationRecord
   # Associations
   has_many :authorizations, dependent: :destroy
   has_one :address, dependent: :destroy
+  has_one :slot, through: :address, dependent: :destroy
 
   # Validations
   validates :email, presence: true

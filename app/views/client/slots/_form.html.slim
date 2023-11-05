@@ -1,0 +1,17 @@
+= simple_form_for slot, html: {class: "w-full mb-8"} do |f|
+  .grid.grid-cols-3.gap-4.mb-12
+    - Slot.day.values.each do |day|
+      .flex.items-center.w-full
+        = f.radio_button :day, day, class: "hidden peer"
+        = f.label :day, t(day), class: "rounded-lg bg-secondary peer-checked:bg-primary peer-checked:text-white text-content px-2 py-1 w-full text-center", value: day
+  p.text-content.text-center.mb-6 Sélectionner le créneau horaire.
+  .grid.grid-cols-3.gap-4.mb-12
+    - Slot.slot_array.each do |generic_slot|
+      .flex.items-center.w-full
+        = radio_button_tag :day_slot, generic_slot, slot.slot_formating == generic_slot, class: "hidden peer"
+        = label_tag "day_slot_#{generic_slot}", generic_slot, class: "rounded-lg bg-secondary peer-checked:bg-primary peer-checked:text-white text-content px-2 py-1 w-full text-center text-sm"
+
+  .flex.flex-row
+    = f.submit "Mettre à jour", class: "btn btn-primary mx-auto w-full"
+    = link_to account_path, class: "flex items-center ml-2" do
+      i.fa-solid.fa-arrow-rotate-left.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary

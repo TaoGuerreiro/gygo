@@ -1,0 +1,3 @@
+= render(Header::Component.new(title: "Slot", backpath: "account_path")) do
+  = turbo_frame_tag @slot do
+    = render "form", slot: @slot
