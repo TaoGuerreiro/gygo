@@ -31,4 +31,5 @@ class Address < ApplicationRecord
   belongs_to :user
   has_one :slot, dependent: :destroy
   accepts_nested_attributes_for :slot
+  validates :address, presence: true
 end

@@ -31,6 +31,9 @@ class Slot < ApplicationRecord
   CLOSING_HOUR = "18:00"
   SLOT_SIZE = 2.hours
 
+  def slot_formating
+    "#{start_hour}-#{end_hour}"
+  end
   def self.slot_array
     start_time = Time.parse(OPENING_HOUR)
     end_time = Time.parse(CLOSING_HOUR)

@@ -5,7 +5,6 @@ head
   = csp_meta_tag
   = stylesheet_link_tag "application", "data-turbo-track": "reload"
   = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
-  = render partial: "layouts/flash"
   = javascript_importmap_tags
 
   = tag :meta, name: :mapbox_token, content: Rails.application.credentials.mapbox_api_key

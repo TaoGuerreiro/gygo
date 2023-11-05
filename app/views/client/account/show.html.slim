@@ -1,0 +1,64 @@
+= render(Header::Component.new(title: "Votre compte", backpath: "root_path")) do
+  h2.mb-6 Adresse de livraison
+  = turbo_frame_tag @address do
+    = render_flash
+    .flex.mb-6
+      i.fa-solid.fa-map-marker-alt.basis-1/5.self-center.text-content.text-3xl.text-center.text-primary
+      p.text-content.basis-3/5 = @address.address
+      = link_to edit_address_path(@user.address), class: "flex items-center" do
+        i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
+
+  h2.mb-6 Créneau de livraison
+  = turbo_frame_tag @slot do
+    = render_flash
+    .flex.mb-6
+      .basis-2/5.mx-2 = render(Badge::Component.new) do
+        = @slot.day
+      .basis-2/5.mx-2 = render(Badge::Component.new) do
+        = @slot.slot_formating
+      = link_to edit_slot_path(@slot), class: "flex items-center" do
+        i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
+
+  h2.mb-6 Moyen de paiement
+  .flex.mb-6
+    .w-96.h-40.m-auto.bg-secondary.rounded-xl.relative.text-white.shadow-2xl.transition-transform.hover:scale-110
+      img.relative.object-cover.w-full.h-full.rounded-xl src="https://i.imgur.com/kGkSg1v.png"
+      .w-full.px-8.absolute.top-4
+        .flex.justify-between
+          div
+            p.font-light Card Number
+            p.font-medium.tracking-more-wider
+              | ****  ****  ****  4242
+        .pt-2
+          .flex.justify-between.items-center
+            div
+              p.font-light.text-xs Expiry
+              p.font-medium.tracking-wider.text-sm 03/25
+            div
+              p.font-light.text-xs CVV
+              p.font-bold.tracking-more-wider.text-sm
+                | ***
+            img.w-14.h-14 src="https://i.imgur.com/bbPHJVe.png"
+    i.fa-solid.fa-edit.basis-1/5.self-center.text-content.text-2xl.text-center.text-primary
+
+  h2.mb-6 Derniers paiements
+  .flex.mb-6
+    table.w-full.divide-y
+      thead.text-xs.font-semibold.uppercase
+        tr
+          th.py-3.ps-4.text-left.font-semibold Amount
+          th.py-3.text-left.font-semibold Status
+          th.py-3.pe-4.text-left.font-semibold Date
+      tbody.divide-y.text-sm.font-medium
+        tr
+          td.py-3.ps-4 30 €
+          td.py-3
+            = render(Pill::Component.new) do
+              | Successful
+          td.py-3.pe-4 Sep. 01
+        tr
+          td.py-3.ps-4 30 €
+          td.py-3
+            = render(Pill::Component.new(color: "red")) do
+              | Issue
+          td.py-3.pe-4 Oct. 01
